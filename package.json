@@ -8,6 +8,9 @@
     "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "stocknode": "./lib/index.js"
+  },
   "keywords": [
     "Stock",
     "nodejs",
