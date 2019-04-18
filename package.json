@@ -1,0 +1,20 @@
+{
+  "name": "stock-node-cli",
+  "version": "1.0.0",
+  "description": "Stock CLI in Nodejs",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Stock",
+    "nodejs",
+    "cli",
+    "typescript"
+  ],
+  "author": "Viet Nguyen",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.20.0"
+  }
+}
