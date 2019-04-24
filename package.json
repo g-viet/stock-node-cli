@@ -21,7 +21,8 @@
   "author": "Viet Nguyen",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.20.0"
+    "commander": "^2.20.0",
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "@types/node": "^11.13.5",

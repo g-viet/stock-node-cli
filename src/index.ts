@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-import * as Stock from './stock';
+import * as Stock from './stock_api';
 
 program
     .version('0.0.1')
@@ -9,8 +9,16 @@ program
     .arguments('get <stock> [otherStocks...]', 'get one or more stocks price')
     .action((cmd: string, stocks: string[] = []) => {
         switch(cmd) {
-            case "get":
-                Stock.get(stocks);
+            case "gets":
+                if (stocks.length == 0) {
+                    console.log("You must include stock codes!! For example: ");
+                    console.log("`stocknode get VCB TCM`");
+                    return
+                }
+                Stock.gets(stocks);
+                break;
+            case "stream":
+                Stock.stream(stocks[0]);
                 break;
             default:
                 console.log(`No "${cmd}" method.`)
@@ -18,4 +26,7 @@ program
     });
 
 program.parse(process.argv);
-process.exit(0);
+
+setTimeout(() => {
+    process.exit(0);
+}, 2000);
