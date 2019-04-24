@@ -1,5 +1,5 @@
 # stock-node-cli
-A CLI tool used to get stock information
+A CLI tool used for getting stock information
 
 ---
 ### Installation:
@@ -18,7 +18,7 @@ A CLI tool used to get stock information
 ```
 4. Try it
 ```
-    stacknode gets VCB TCM
+    stocknode gets VCB TCM
 ```
 
 ---
