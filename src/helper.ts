@@ -12,7 +12,7 @@ const fetchStock = async (stockCode: string): Promise<Stock> => {
     const apiCall = () => {
         return new Promise((resolve, reject) => {
             const options = {
-                url: Helper.buildApiUrl(stockCode),
+                url: buildApiUrl(stockCode),
                 method: 'GET',
                 json: true
             };
@@ -28,6 +28,5 @@ const fetchStock = async (stockCode: string): Promise<Stock> => {
 }
 
 export const Helper = {
-    buildApiUrl: buildApiUrl,
     fetchStock: fetchStock
 }

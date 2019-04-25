@@ -16,6 +16,7 @@ program
                     return;
                 }
                 Stock.gets(stocks);
+                break;
             case "stream":
                 if (stocks.length == 0) {
                     console.log("You must include stock code!! For example: ");

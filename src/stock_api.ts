@@ -3,10 +3,8 @@ import { Helper } from './helper';
 const gets = (stockCodes: string[]) => {
     console.log(`Stock\tPrice\t\tVolume\t\tOpenPrice\tHighestPrice\tLowestPrice\tTime`);
     try {
-        return Promise.all(stockCodes.map(async (code) => {
-            const stock = await Helper.fetchStock(code);
-            stock.printf();
-            return true;
+        return Promise.all(stockCodes.map((code) => {
+            return Helper.fetchStock(code).then(stock => stock.printf());
         }));
     } catch (err) {
         throw err;
@@ -14,7 +12,10 @@ const gets = (stockCodes: string[]) => {
 }
 
 const stream = (stockCode: string) => {
-    return;
+    console.log(`Stock\tPrice\t\tVolume\t\tOpenPrice\tHighestPrice\tLowestPrice\tTime`);
+    setInterval(() => {
+        Helper.fetchStock(stockCode).then(stock => stock.printf());
+    }, 2000);
 }
 
 export {
