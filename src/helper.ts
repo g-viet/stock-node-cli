@@ -8,7 +8,7 @@ const buildApiUrl = (stockCode: string): string => {
     return `${BASE_API_URL}?symbol=${stockCode}&resolution=D&from=${from}&to=${to}`;
 }
 
-const fetchStock = async (stockCode: string): Promise<Stock> => {
+const fetchStock = async (stockCode: string): Promise<Stock | null> => {
     const apiCall = () => {
         return new Promise((resolve, reject) => {
             const options = {
@@ -23,7 +23,11 @@ const fetchStock = async (stockCode: string): Promise<Stock> => {
         })
     }
     return apiCall().then((body: any) => {
-        return new Stock(stockCode, JSON.parse(body));
+        try {
+            return new Stock(stockCode, JSON.parse(body));
+        } catch(_err) {
+            return null;
+        }
     })
 }
 
