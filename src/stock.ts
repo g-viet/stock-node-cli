@@ -14,11 +14,11 @@ export class Stock {
         this.openPrice = stockPrices['o'];
         this.highestPrice = stockPrices['h'];
         this.lowestPrice = stockPrices['l'];
-        this.time = stockPrices['t'];
+        this.time = new Date();
     }
 
     printf () {
-        console.log(`${this.code}\t${this.f(this.currentPrice)}\t\t${this.f(this.volume)}\t\t${this.f(this.openPrice)}\t\t${this.f(this.highestPrice)}\t\t${this.f(this.lowestPrice)}\t\t${this.time}`);
+        console.log(`${this.code}\t${this.f(this.currentPrice)}\t\t${this.f(this.volume)}\t\t${this.f(this.openPrice)}\t\t${this.f(this.highestPrice)}\t\t${this.f(this.lowestPrice)}\t\t${this.time.toLocaleTimeString()}`);
     }
 
     f(n: number) {
