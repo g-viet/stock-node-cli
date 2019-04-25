@@ -5,17 +5,22 @@ const BASE_API_URL = 'https://api.vietstock.vn/ta/history';
 
 const gets = (stockCodes: string[]) => {
     console.log(`Stock\tPrice\t\tVolume\t\tOpenPrice\tHighestPrice\tLowestPrice\tTime`);
-    return Promise.all(stockCodes.map(code => {
-        const options = {
-            url: buildApiUrl(code),
-            method: 'GET',
-            json: true
-        }
-        return request(options, (_err: any, _res: any, body: any) => {
-            const stockPrice = new Stock(code, JSON.parse(body));
-            return stockPrice.printf();
-        });
-    }));
+    try {
+        return Promise.all(stockCodes.map(code => {
+            const options = {
+                url: buildApiUrl(code),
+                method: 'GET',
+                json: true
+            }
+            return request(options, (_err: any, _res: any, body: any) => {
+                const stockPrice = new Stock(code, JSON.parse(body));
+                stockPrice.printf();
+                return true;
+            });
+        }));
+    } catch (err) {
+        throw err;
+    }
 }
 
 const stream = (stockCode: string) => {
