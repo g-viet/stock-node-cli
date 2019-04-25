@@ -12,11 +12,10 @@ program
             case "gets":
                 if (stocks.length == 0) {
                     console.log("You must include stock codes!! For example: ");
-                    console.log("`stocknode get VCB TCM`");
-                    return
+                    console.log("`stocknode gets VCB TCM`");
+                    return;
                 }
                 Stock.gets(stocks);
-                break;
             case "stream":
                 Stock.stream(stocks[0]);
                 break;
@@ -26,7 +25,3 @@ program
     });
 
 program.parse(process.argv);
-
-setTimeout(() => {
-    process.exit(0);
-}, 2000);
