@@ -26,5 +26,12 @@ A CLI tool used for getting stock information
 
 - Getting multiple stock prices:
 ```
+    # stocknode gets [List of StockCode]
     stocknode gets VCB TCM
+```
+
+- Getting stream stock price:
+```
+    # stocknode stream [StockCode]
+    stocknode stream VCB
 ```
