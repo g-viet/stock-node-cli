@@ -17,6 +17,11 @@ program
                 }
                 Stock.gets(stocks);
             case "stream":
+                if (stocks.length == 0) {
+                    console.log("You must include stock code!! For example: ");
+                    console.log("`stocknode stream VCB`");
+                    return;
+                }
                 Stock.stream(stocks[0]);
                 break;
             default:
