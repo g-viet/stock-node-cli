@@ -19,7 +19,16 @@ const stream = (stockCode: string) => {
 }
 
 const group = (groupCode: string) => {
-    return gets(Helper.getStockCodesByGroupCode(groupCode));
+    if (groupCode) {
+        return gets(Helper.getStockCodesByGroupCode(groupCode));
+    } else {
+        console.log("List of Industry Group:")
+        Helper.listGroup().forEach((ele) => {
+            console.log("- %s", ele);
+        });
+        console.log("\nFor getting stock prices of Industry Group:");
+        console.log("    $ stocknode group <INDUSTRY_GROUP>");
+    }
 }
 
 export {

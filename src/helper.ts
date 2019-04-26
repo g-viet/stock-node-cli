@@ -35,7 +35,12 @@ const getStockCodesByGroupCode = (groupCode: string): string[] => {
     return INDUSTRY_GROUPS[groupCode] || [];
 }
 
+const listGroup = () => {
+    return Object.keys(INDUSTRY_GROUPS);
+}
+
 export const Helper = {
     fetchStock,
-    getStockCodesByGroupCode
+    getStockCodesByGroupCode,
+    listGroup
 }
