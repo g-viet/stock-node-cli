@@ -35,3 +35,9 @@ A CLI tool used for getting stock information
     # stocknode stream [StockCode]
     stocknode stream VCB
 ```
+
+- Getting stock prices in industry group:
+```
+    # stocknode group [GroupCode]
+    stocknode group textile
+```

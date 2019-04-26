@@ -1,7 +1,7 @@
 import { Stock } from "./stock";
+import { INDUSTRY_GROUPS, BASE_API_URL } from "./constant";
 const request = require('request');
 
-const BASE_API_URL = 'https://api.vietstock.vn/ta/history';
 const buildApiUrl = (stockCode: string): string => {
     const to = Math.floor(Date.now() / 1000);
     const from = to - 864000; // 10 days
@@ -25,12 +25,17 @@ const fetchStock = async (stockCode: string): Promise<Stock | null> => {
     return apiCall().then((body: any) => {
         try {
             return new Stock(stockCode, JSON.parse(body));
-        } catch(_err) {
+        } catch (_err) {
             return null;
         }
     })
 }
 
+const getStockCodesByGroupCode = (groupCode: string): string[] => {
+    return INDUSTRY_GROUPS[groupCode] || [];
+}
+
 export const Helper = {
-    fetchStock: fetchStock
+    fetchStock,
+    getStockCodesByGroupCode
 }

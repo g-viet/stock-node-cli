@@ -18,7 +18,12 @@ const stream = (stockCode: string) => {
     }, 2000);
 }
 
+const group = (groupCode: string) => {
+    return gets(Helper.getStockCodesByGroupCode(groupCode));
+}
+
 export {
     gets,
-    stream
+    stream,
+    group
 }
