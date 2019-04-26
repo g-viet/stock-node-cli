@@ -1,5 +1,5 @@
 # stock-node-cli
-A CLI tool used for getting stock information
+A CLI tool used for getting stock price in Vietnam
 
 ---
 ### Installation:
