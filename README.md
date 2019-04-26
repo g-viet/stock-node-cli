@@ -38,6 +38,9 @@ A CLI tool used for getting stock information
 
 - Getting stock prices in industry group:
 ```
-    # stocknode group [GroupCode]
+    # Get list of industry group:
+    stocknode group
+
+    # stocknode group <GroupCode>:
     stocknode group textile
 ```
