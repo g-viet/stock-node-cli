@@ -12,7 +12,7 @@ const gets = (stockCodes: string[]) => {
 }
 
 const stream = (stockCode: string) => {
-    console.log(`Stock\tPrice\t\tVolume\t\tOpenPrice\tHighestPrice\tLowestPrice\tTime`);
+    console.log(`Stock\tPrice\t\tVolume\t\t\tOpenPrice\tHighestPrice\tLowestPrice\tTime`);
     setInterval(() => {
         Helper.fetchStock(stockCode).then(stock => stock && stock.printf());
     }, 2000);
