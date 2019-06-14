@@ -30,4 +30,10 @@ program
     .action((groupCode: string) => {
         StockApi.group(groupCode);
     });
+program
+    .command('test <stockCode>')
+    .description('test')
+    .action((stockCode: string) => {
+        StockApi.test(stockCode);
+    });
 program.parse(process.argv);
