@@ -18,7 +18,8 @@ export class Stock {
     }
 
     printf () {
-        console.log(`${this.code}\t${this.f(this.currentPrice)}\t\t${this.f(this.volume)}\t\t${this.f(this.openPrice)}\t\t${this.f(this.highestPrice)}\t\t${this.f(this.lowestPrice)}\t\t${this.time.toLocaleTimeString()}`);
+        const volume = this.f(this.volume);
+        console.log(`${this.code}\t${this.f(this.currentPrice)}\t\t${volume}${volume.length >= 9 ? '\t' : '\t\t' }${this.f(this.openPrice)}\t\t${this.f(this.highestPrice)}\t\t${this.f(this.lowestPrice)}\t\t${this.time.toLocaleTimeString()}`);
     }
 
     f(n: number) {
