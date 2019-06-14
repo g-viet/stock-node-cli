@@ -1,5 +1,5 @@
 const INDUSTRY_GROUPS: any = {
-    "common": ["VNINDEX", "VN30"],
+    "TOP": ["VIC", "VHM", "VCB", "VNM", "VJC", "VRE", "VHC", "TCM", "HBC", "HPG", "TTF", "GMD", "LHG", "POW"],
     "textile": ["TCM", "TNG", "STK", "M10", "GIL", "MSH"],
     "wood": ["TTF"],
     "bank": ["VCB", "BID", "ACB", "MBB", "TCB", "VPB", "STB", "SHB", "HDB", "TPB"],
@@ -13,8 +13,7 @@ const INDUSTRY_GROUPS: any = {
     "steel": ["HPG", "HSG"],
     "agriculture": ["HAG", "HNG"],
     "electricity": ["POW", "PPC", "GEG"],
-    "pharmacy": ["DHG"],
-    "TOP": ["VIC", "VHM", "VCB", "VNM", "VJC", "VRE", "VHC", "TCM", "HBC", "HPG", "TTF", "GMD", "LHG", "POW"]
+    "pharmacy": ["DHG"]
 }
 
 const BASE_API_URL = 'https://api.vietstock.vn/ta/history';
