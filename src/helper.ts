@@ -28,7 +28,6 @@ const fetchStock = async (stockCode: string): Promise<any> => {
     }
     return apiCall().then((body: any) => {
         try {
-            // return JSON.stringify(body);
             return new Stock(stockCode, body);
         } catch (_err) {
             return null;
