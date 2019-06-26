@@ -31,16 +31,8 @@ const group = (groupCode: string) => {
     }
 }
 
-const test = (stockCode: string) => {
-    console.log("testing...")
-    return new Promise(() => {
-        return Helper.fetchStock(stockCode).then(body => console.log(body));
-    })
-}
-
 export {
     gets,
     stream,
-    group,
-    test
+    group
 }

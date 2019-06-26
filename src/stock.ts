@@ -8,12 +8,12 @@ export class Stock {
     time: Date;
     
     constructor(stockCode: string, stockPrices: any) {
-        this.code = stockCode.toLocaleUpperCase();
-        this.currentPrice = stockPrices['c'];
-        this.volume = stockPrices['v'];
-        this.openPrice = stockPrices['o'];
-        this.highestPrice = stockPrices['h'];
-        this.lowestPrice = stockPrices['l'];
+        this.code = stockCode;
+        this.currentPrice = stockPrices.LastPrice;
+        this.volume = stockPrices.TotalVol;
+        this.openPrice = stockPrices.OpenPrice;
+        this.highestPrice = stockPrices.HighestPrice;
+        this.lowestPrice = stockPrices.LowestPrice;
         this.time = new Date();
     }
 

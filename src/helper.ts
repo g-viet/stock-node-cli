@@ -8,6 +8,7 @@ const getCurrentTime = (): string => {
 };
 
 const fetchStock = async (stockCode: string): Promise<any> => {
+    stockCode = stockCode.toLocaleUpperCase();
     const apiCall = () => {
         return new Promise((resolve, reject) => {
             const options = {
@@ -27,8 +28,8 @@ const fetchStock = async (stockCode: string): Promise<any> => {
     }
     return apiCall().then((body: any) => {
         try {
-            return JSON.stringify(body);
-            // return new Stock(stockCode, JSON.parse(body));
+            // return JSON.stringify(body);
+            return new Stock(stockCode, body);
         } catch (_err) {
             return null;
         }
