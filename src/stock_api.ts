@@ -1,7 +1,8 @@
 import { Helper } from './helper';
+import { Stock } from './stock';
 
 const gets = (stockCodes: string[]) => {
-    console.log(`Stock\tPrice\t\tVolume\t\tOpenPrice\tHighestPrice\tLowestPrice\tTime`);
+    Stock.printfHeader();
     try {
         return Promise.all(stockCodes.map((code) => {
             return Helper.fetchStock(code).then(stock => stock && stock.printf());
@@ -12,7 +13,7 @@ const gets = (stockCodes: string[]) => {
 }
 
 const stream = (stockCode: string) => {
-    console.log(`Stock\tPrice\t\tVolume\t\t\tOpenPrice\tHighestPrice\tLowestPrice\tTime`);
+    Stock.printfHeader();
     setInterval(() => {
         Helper.fetchStock(stockCode).then(stock => stock && stock.printf());
     }, 2000);

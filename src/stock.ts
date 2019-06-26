@@ -17,6 +17,10 @@ export class Stock {
         this.time = new Date();
     }
 
+    static printfHeader() {
+        console.log(`Stock\tPrice\t\tVolume\t\tOpenPrice\tHighestPrice\tLowestPrice\tTime`);
+    }
+
     printf () {
         const volume = this.f(this.volume);
         console.log(`${this.code}\t${this.f(this.currentPrice)}\t\t${volume}${volume.length >= 9 ? '\t' : '\t\t' }${this.f(this.openPrice)}\t\t${this.f(this.highestPrice)}\t\t${this.f(this.lowestPrice)}\t\t${this.time.toLocaleTimeString()}`);
