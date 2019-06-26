@@ -16,11 +16,9 @@ const INDUSTRY_GROUPS: any = {
     "pharmacy": ["DHG"]
 }
 
-const BASE_API_URL = 'https://api.vietstock.vn/ta/history';
-const TEST_URL = 'https://finance.vietstock.vn/company/tradinginfo';
+const BASE_API_URL = 'https://finance.vietstock.vn/company/tradinginfo';
 
 export {
     INDUSTRY_GROUPS,
-    BASE_API_URL,
-    TEST_URL
+    BASE_API_URL
 }
