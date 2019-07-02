@@ -30,10 +30,10 @@ A CLI tool used for getting stock price in Vietnam
     stocknode gets VCB TCM
 ```
 
-- Getting stream stock price:
+- Getting stream stock prices:
 ```
-    # stocknode stream [StockCode]
-    stocknode stream VCB
+    # stocknode stream [List of StockCode]
+    stocknode stream VCB TCB
 ```
 
 - Getting stock prices in industry group:
