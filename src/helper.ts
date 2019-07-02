@@ -18,7 +18,7 @@ const fetchStock = async (stockCode: string): Promise<any> => {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: { "code": stockCode, "s": "1", "t": getCurrentTime() }
+                body: { code: stockCode, s: "1", t: getCurrentTime() }
             };
             request(options, (err: any, _res: any, body: any) => {
                 if (err) reject(err);

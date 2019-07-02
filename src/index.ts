@@ -19,10 +19,10 @@ program
         StockApi.gets(stocks);
     });
 program
-    .command('stream <stockCode>')
+    .command('stream <stocks...>')
     .description('get streaming stock price')
-    .action((stockCode: string) => {
-        StockApi.stream(stockCode);
+    .action((stocks: string[]) => {
+        StockApi.stream(stocks);
     });
 program
     .command('group [groupCode]')

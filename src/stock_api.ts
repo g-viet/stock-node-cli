@@ -4,18 +4,25 @@ import { Stock } from './stock';
 const gets = (stockCodes: string[]) => {
     Stock.printfHeader();
     try {
-        return Promise.all(stockCodes.map((code) => {
-            return Helper.fetchStock(code).then(stock => stock && stock.printf());
-        }));
+        Promise.all(stockCodes.map((code) => {
+            return Helper.fetchStock(code);
+        })).then(stocks =>
+            stocks.map(stock => stock && stock.printf())
+        );
     } catch (err) {
         throw err;
     }
 }
 
-const stream = (stockCode: string) => {
+const stream = (stockCodes: string[]) => {
     Stock.printfHeader();
     setInterval(() => {
-        Helper.fetchStock(stockCode).then(stock => stock && stock.printf());
+        Promise.all(stockCodes.map((code) => {
+            return Helper.fetchStock(code);
+        })).then(stocks =>
+            stocks.map(stock => stock && stock.printf())
+        );
+        // Helper.fetchStock(stockCode).then(stock => stock && stock.printf());
     }, 2000);
 }
 
