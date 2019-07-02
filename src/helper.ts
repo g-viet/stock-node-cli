@@ -2,19 +2,23 @@ import { Stock } from "./stock";
 import { INDUSTRY_GROUPS, BASE_API_URL } from "./constant";
 const request = require('request');
 
-const buildApiUrl = (stockCode: string): string => {
-    const to = Math.floor(Date.now() / 1000);
-    const from = to - 864000; // 10 days
-    return `${BASE_API_URL}?symbol=${stockCode}&resolution=D&from=${from}&to=${to}`;
-}
+const getCurrentTime = (): string => {
+    const d = new Date();
+    return `${d.getFullYear()}${d.getMonth() + 1}${d.getDate()}${d.getHours()}${d.getMinutes()}${d.getSeconds()}`;
+};
 
-const fetchStock = async (stockCode: string): Promise<Stock | null> => {
+const fetchStock = async (stockCode: string): Promise<any> => {
+    stockCode = stockCode.toLocaleUpperCase();
     const apiCall = () => {
         return new Promise((resolve, reject) => {
             const options = {
-                url: buildApiUrl(stockCode),
-                method: 'GET',
-                json: true
+                uri: BASE_API_URL,
+                method: 'POST',
+                json: true,
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: { code: stockCode, s: "1", t: getCurrentTime() }
             };
             request(options, (err: any, _res: any, body: any) => {
                 if (err) reject(err);
@@ -24,7 +28,7 @@ const fetchStock = async (stockCode: string): Promise<Stock | null> => {
     }
     return apiCall().then((body: any) => {
         try {
-            return new Stock(stockCode, JSON.parse(body));
+            return new Stock(stockCode, body);
         } catch (_err) {
             return null;
         }
